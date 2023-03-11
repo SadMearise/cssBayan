@@ -137,8 +137,6 @@ body {
 	overflow: auto;
 }
 
-
-
 @media (max-width: 1919.98px) {
 	.accordion {
 		width: 80%;
@@ -151,7 +149,7 @@ body {
 	}
 }
 
-@media (hover: hover) {
+@media (hover: hover) and (pointer: fine) {
 	.accordion:not(:hover) .accordion-item__input[type="radio"]:not(:checked) ~ .accordion-item__label {
 		color: var(--color-dark);
 	} 
