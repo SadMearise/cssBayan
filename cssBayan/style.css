@@ -144,12 +144,6 @@ body {
 	}
 }
 
-@media (hover: none) {
-	.accordion-item__icon {
-		opacity: 0;
-	}
-}
-
 @media (hover: hover) and (pointer: fine) {
 	.accordion:not(:hover) .accordion-item__input[type="radio"]:not(:checked) ~ .accordion-item__label {
 		color: var(--color-dark);
