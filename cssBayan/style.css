@@ -143,6 +143,16 @@ body {
 		width: 80%;
 	}
 }
+@media (max-width: 819.98px) {
+	.accordion {
+		width: 81%;
+	}
+}
+@media (max-width: 319.98px) {
+	.accordion {
+		width: 82%;
+	}
+}
 
 @media (hover: hover) and (pointer: fine) {
 	.accordion:not(:hover) .accordion-item__input[type="radio"]:not(:checked) ~ .accordion-item__label {
