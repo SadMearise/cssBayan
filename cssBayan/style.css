@@ -1,0 +1,182 @@
+/* Обнуление */
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed, 
+figure, figcaption, footer, header, hgroup, 
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	font-size: 100%;
+	font: inherit;
+	vertical-align: baseline;
+}
+*{
+	box-sizing: border-box;
+}
+html,body{
+	height: 100%;
+	width: 100%;
+	font-size: 100%;
+	line-height: 1;
+}
+button{
+	cursor: pointer;
+	background-color: transparent;
+}
+a, a:visited, a:hover{text-decoration: none;}
+ol, ul {list-style: none;}
+img{vertical-align: top;}
+h1,h2,h3,h4,h5,h6{font-size:inherit;font-weight: 400;}
+table {
+	border-collapse: collapse;
+	border-spacing: 0;
+}
+article, aside, details, figcaption, figure, 
+footer, header, hgroup, menu, nav, section {
+	display: block;
+}
+blockquote, q {
+	quotes: none;
+}
+/*--------------------*/
+
+:root {
+	--index: calc(1vh + 1vw);
+	--color-orange: #FD8558;
+	--color-dark: #222222;
+	--color-white: #FFFFFF;
+	--color-white-100: #F5F5F5;
+}
+
+body {
+	font-family: 'Poppins', sans-serif;
+	background-color: var(--color-white-100);
+	color: var(--color-dark);
+	overflow-y: scroll;
+}
+
+.wrapper {
+	width: 100%;
+	min-height: 100%;
+	overflow: hidden;
+	display: flex;
+	flex-direction: column;
+}
+
+.accordion {
+	width: 40%;
+	margin: 0 auto;
+}
+
+.accordion__title {
+	color: var(--color-orange);
+	font-size: calc(var(--index) * 2);
+	text-align: left;
+	margin-bottom: calc(var(--index) * 2);
+}
+
+.accordion-item:active .accordion-item__label{
+	opacity: .7;
+	color: var(--color-dark) !important;
+}
+
+.accordion-item:active .accordion-item__support-label{
+	opacity: .7;
+}
+
+.accordion-item__input[type="radio"]:checked ~ .accordion-item__support-label .accordion-item__image {
+	scale: 1;
+	max-height: 50rem;
+	padding: 1rem;
+}
+
+.accordion-item__input[type="radio"]:checked ~ .accordion-item__label .accordion-item__icon {
+	transform: rotate(360deg);
+	background: url('img/collapse.png') 50%/contain no-repeat;
+}
+
+.accordion-item__input {
+	display: none;
+}
+
+.accordion-item__label {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	background-color: var(--color-orange);
+	color: var(--color-white);
+	font-size: calc(var(--index) * 1);
+	padding: calc(var(--index) * 0.3) calc(var(--index) * 0.5);
+	transition: all .7s ease 0s;
+}
+
+.accordion-item__icon {
+	width: calc(var(--index) * 1);
+	height: calc(var(--index) * 1);
+	background: url('img/expand.png') 50%/contain no-repeat;
+	transition: all .7s ease 0s;
+	will-change: transform;
+}
+
+.accordion-item__image {
+	display: block;
+	margin: 0 auto;
+	width: 60%;
+	max-height: 0;
+	scale: 0;
+	transition: all .7s, padding .5s;
+	object-fit: contain;
+	overflow: auto;
+}
+
+@media (max-width: 1919.98px) {
+	.accordion {
+		width: 80%;
+	}
+}
+@media (max-width: 819.98px) {
+	.accordion {
+		width: 81%;
+	}
+}
+@media (max-width: 319.98px) {
+	.accordion {
+		width: 82%;
+	}
+}
+
+@media (hover: hover) and (pointer: fine) {
+	.accordion:not(:hover) .accordion-item__input[type="radio"]:not(:checked) ~ .accordion-item__label {
+		color: var(--color-dark);
+	} 
+	.accordion:hover .accordion-item__input[type="radio"]:not(:checked) ~ .accordion-item__label {
+		color: var(--color-white);
+	}
+	.accordion-item__icon {
+		opacity: 0;
+	}
+	.accordion:hover .accordion-item__icon {
+		opacity: 1;
+	}
+	.accordion__item:hover .accordion-item__support-label .accordion-item__image {
+		scale: 1;
+		max-height: 50rem;
+		padding: 1rem;
+	}
+	.accordion__item:hover .accordion-item__label .accordion-item__icon {
+		transform: rotate(360deg);
+		background: url('img/collapse.png') 50%/contain no-repeat;
+	}
+	.accordion-item__label, .accordion-item__support-label {
+		cursor: pointer;
+	} 
+}
